@@ -33,7 +33,10 @@ written by configuring logback differently.
 `mvn clean install`
 
 The build checks the license headers and signs the maven artifacts using GPG. There is an integration test that is not
-platform independant (basically it needs `java` beeing Java 8 and the `kill` command). Modify the POM accordingly, if you have problems with that.
+platform independant (basically it needs `java` beeing Java 8 and the `kill` command). Modify the POM accordingly, if you have problems, or use:
+
+`mvn clean install -DskipITs -Dgpg.skip=true`
+
 
 
 ### Deployment to Maven Central:
