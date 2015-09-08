@@ -3,7 +3,7 @@
 ## Simple mail server for testing purposes using Subethasmtp
 
 The purpose of this project is to provide a very simple SMTP mail server to test and debug
-applications that sends email.
+applications that send email.
 
 The server just logs the mail that is submitted to individual files, it does not send
 mails.
@@ -13,24 +13,27 @@ The implementation is a thin wrapper (basically a main method) around the [Subet
 
 ## Usage:
 
-`sudo java -jar target/testmailserver.jar \<port\>`
+`sudo java -jar target/testmailserver.jar [port]`
 
-Where <port> is optional, its default is 25.
+Where `port` is optional, its default is 25 (if using a port > 1000, sudo can be omitted).
 
-Received messages are logged to logs/msg.
+Received messages are logged to logs/msg. Java 8 is required.
 
 Stop the server with SIGINT (Ctrl-C).
 
 
 ## Customization:
 
-Logback is used for logging. You can modify the way messages are
+[Logback](http://logback.qos.ch/) is used for logging. You can modify the way messages are
 written by configuring logback differently.
 
 
 ## Build:
 
 `mvn clean install`
+
+The build checks the license headers and signs the maven artifacts using GPG. There is an integration test that is not
+platform independant (basically it needs `java` beeing Java 8 and the `kill` command). Modify the POM accordingly, if you have problems with that.
 
 
 ## Deployment to Maven Central:
