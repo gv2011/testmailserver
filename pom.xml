@@ -42,7 +42,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/zalando/testmailserver.git</connection>
 		<developerConnection>scm:git:git@github.com:zalando/testmailserver.git</developerConnection>
-		<url>https://github.com/zalando/testmailserver.git</url>
+		<url>https://github.com/zalando/testmailserver</url>
 	</scm>
 
 	<licenses>
