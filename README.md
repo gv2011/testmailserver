@@ -36,12 +36,12 @@ The build checks the license headers and signs the maven artifacts using GPG. Th
 platform independant (basically it needs `java` beeing Java 8 and the `kill` command). Modify the POM accordingly, if you have problems with that.
 
 
-## Deployment to Maven Central:
+### Deployment to Maven Central:
 
 Not yet supported.
 
 
-## Update license:
+### Update license:
 
 The license headers are checked during the build. If that fails,
 they can be updated by: 
