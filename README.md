@@ -11,6 +11,7 @@ The server just logs the mail that is submitted to individual files.
 sudo java -jar target/testmailserver.jar <port>
 <port> is optional, 25 is the default SMTP port.
 Received messages are logged to logs/msg.
+Stop the server with SIGINT (Ctrl-C).
 
 
 ## Customization:
