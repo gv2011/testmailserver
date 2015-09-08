@@ -1,36 +1,49 @@
 # Testmailserver
 
-## Simple mail server for testing purposes using Subethamail
+## Simple mail server for testing purposes using Subethasmtp
 
-The purpose of this project is to provide a very simple mail server to test and debug
-an application that sends email.
+The purpose of this project is to provide a very simple SMTP mail server to test and debug
+applications that sends email.
 
-The server just logs the mail that is submitted to individual files.
+The server just logs the mail that is submitted to individual files, it does not send
+mails.
+
+The implementation is a thin wrapper (basically a main method) around the [Subethasmtp](https://github.com/voodoodyne/subethasmtp) library.
+
 
 ## Usage:
-sudo java -jar target/testmailserver.jar <port>
-<port> is optional, 25 is the default SMTP port.
+
+`sudo java -jar target/testmailserver.jar \<port\>`
+
+Where <port> is optional, its default is 25.
+
 Received messages are logged to logs/msg.
+
 Stop the server with SIGINT (Ctrl-C).
 
 
 ## Customization:
+
 Logback is used for logging. You can modify the way messages are
 written by configuring logback differently.
 
 
 ## Build:
-  mvn clean install
+
+`mvn clean install`
 
 
-## Deploymemnt to Maven Central:
+## Deployment to Maven Central:
+
 Not yet supported.
 
 
 ## Update license:
+
 The license headers are checked during the build. If that fails,
 they can be updated by: 
-  mvn license:format
+
+`mvn license:format`
 
 
 ## License
