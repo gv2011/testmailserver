@@ -20,54 +20,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.zalando.testmailserver;
+package org.zalando.testmailserver.util;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+import java.io.IOException;
+import java.nio.file.DirectoryStream.Filter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.attribute.BasicFileAttributeView;
+import java.nio.file.attribute.FileTime;
 
-public class TestMessage{
-	byte[] messageData;
-	String envelopeSender;
-	String envelopeReceiver;
+public final class FileFilters {
 
-	TestMessage(final String envelopeSender, 
-				final String envelopeReceiver, 
-				final byte[] messageData){
-		this.envelopeSender = envelopeSender;
-		this.envelopeReceiver = envelopeReceiver;
-		this.messageData = messageData;
-	}
+	public static Filter<Path> createdSince(final FileTime since) {
+		return new Filter<Path>() {
+			@Override
+			public boolean accept(final Path file) throws IOException {
+				final BasicFileAttributeView fileAttributeView = Files
+						.getFileAttributeView(file,
+								BasicFileAttributeView.class);
+				final FileTime creationTime = fileAttributeView.readAttributes().creationTime();
+				System.out.println(creationTime);
+				final boolean result = creationTime.compareTo(since) >= 0;
+				return result; 
+			}
+		};
 
-	/**
-	 * Get's the raw message DATA.
-	 */
-	public byte[] getData()
-	{
-		return messageData.clone();
-	}
-
-	/**
-	 * Get's the RCPT TO:
-	 */
-	public String getEnvelopeReceiver()
-	{
-		return envelopeReceiver;
-	}
-
-	/**
-	 * Get's the MAIL FROM:
-	 */
-	public String getEnvelopeSender()
-	{
-		return envelopeSender;
-	}
-
-	@Override
-	public String toString(){
-		final StringBuilder result = new StringBuilder();
-		result.append("Envelope sender: " + getEnvelopeSender()).append('\n');
-		result.append("Envelope recipient: " + getEnvelopeReceiver()).append('\n');
-		result.append('\n');
-		result.append(new String(getData(), UTF_8));
-		return result.toString();
 	}
 }

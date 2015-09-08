@@ -29,7 +29,7 @@
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- rollover daily -->
-			<fileNamePattern>logs/debug-%d{yyyy-MM-dd}.%i.log
+			<fileNamePattern>testlogs/debug-%d{yyyy-MM-dd}.%i.log
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -39,16 +39,23 @@
 			<maxHistory>50</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{HH:mm:ss.SSS} %level [%thread] %logger %msg%n</pattern>
+			<pattern>%date{HH:mm:ss.SSS} %level [%thread] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	
 	<appender name="MSG"
 		class="org.zalando.testmailserver.logbackext.OneFilePerEventAppender">
-		<folder>logs/msg</folder>
+		<folder>testlogs/msg</folder>
 		<layout class="ch.qos.logback.classic.PatternLayout">
 			<pattern>%msg</pattern>
 		</layout>
+	</appender>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{HH:mm:ss.SSS} %level [%thread] %logger - %msg%n
+			</pattern>
+		</encoder>
 	</appender>
 	
 	<logger name="org.zalando.testmailserver.LoggingMessageListener.msg" additivity="false" level="debug">
@@ -57,6 +64,7 @@
 
 	<root level="debug">
 		<appender-ref ref="DEBUG" />
+		<appender-ref ref="STDOUT" />
 	</root>
 
 </configuration>

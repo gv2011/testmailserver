@@ -8,10 +8,28 @@ an application that sends email.
 The server just logs the mail that is submitted to individual files.
 
 ## Usage:
-java -jar target/
+sudo java -jar target/testmailserver.jar <port>
+<port> is optional, 25 is the default SMTP port.
+Received messages are logged to logs/msg.
+
+
+## Customization:
+Logback is used for logging. You can modify the way messages are
+written by configuring logback differently.
+
+
+## Build:
+  mvn clean install
+
+
+## Deploymemnt to Maven Central:
+Not yet supported.
+
 
 ## Update license:
-mvn license:format
+The license headers are checked during the build. If that fails,
+they can be updated by: 
+  mvn license:format
 
 
 ## License
