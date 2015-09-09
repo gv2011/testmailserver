@@ -28,7 +28,7 @@
 
 	<artifactId>testmailserver</artifactId>
 	<groupId>org.zalando</groupId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 
 	<name>testmailserver</name>
 	<description>See README.md</description>
@@ -44,7 +44,7 @@
 		<connection>scm:git:git://github.com/zalando/testmailserver.git</connection>
 		<developerConnection>scm:git:git@github.com:zalando/testmailserver.git</developerConnection>
 		<url>https://github.com/zalando/testmailserver</url>
-		<tag>testmailserver-0.0.1</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<distributionManagement>
