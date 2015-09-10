@@ -69,6 +69,10 @@ they can be updated by:
 
 `mvn license:format`
 
+## Contact
+
+Please open an issue.
+
 
 ## License
 
