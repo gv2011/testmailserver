@@ -41,15 +41,7 @@ platform independant (basically it needs `java` beeing Java 8 and the `kill` com
 
 ### Deployment to Maven Central:
 
-mvn release:prepare release:perform
-
-See [Sonatype documentation](http://central.sonatype.org/pages/apache-maven.html).
-
-Requirements:
-
- * Github account with correctly configured SSH key, permissions on repository.
- * GPG installed, own GPG key, key must be published.
- * Sonatype account, account configured in ~/.m2/settings.xml and necessary permissions.
+Not yet supported.
 
 
 ### Update license:

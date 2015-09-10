@@ -28,7 +28,7 @@
 
 	<artifactId>testmailserver</artifactId>
 	<groupId>org.zalando</groupId>
-	<version>0.0.3</version>
+	<version>0.0.4-SNAPSHOT</version>
 
 	<name>testmailserver</name>
 	<description>See README.md</description>
@@ -309,10 +309,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	
-	<profiles>
-		<profile>
-			<id>release</id>
-		</profile>
-	</profiles>
 </project>
