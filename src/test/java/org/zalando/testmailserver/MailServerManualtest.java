@@ -55,6 +55,16 @@ public class MailServerManualtest {
 		assertThat(Files.isDirectory(logDir), is(true));
 		assertThat(Utils.countDirectChildren(logDir), is(countBeforeMail+1));
 	}
+	
+	/**
+	 * Needs a server that already runs on port 25.
+	 */
+	@Test
+	public void sendMailToRunningServer() throws Exception {
+		final int port = 25;
+		sendMail(port);
+	}
+
 
 	static void sendMail(final int port) throws MessagingException {
 		final Properties properties = new Properties();

@@ -11,15 +11,25 @@ mails.
 The implementation is a thin wrapper (basically a main method) around the [Subethasmtp](https://github.com/voodoodyne/subethasmtp) library.
 
 
+## Download
+
+[testmailserver-0.0.4.jar](https://repo1.maven.org/maven2/org/zalando/testmailserver/0.0.4/testmailserver-0.0.4.jar)
+
+
 ## Usage:
 
-`sudo java -jar target/testmailserver.jar [port]`
+`sudo java -jar target/testmailserver-0.0.4.jar [port]`
 
 Where `port` is optional, its default is 25 (if using a port > 1000, sudo can be omitted).
 
 Received messages are logged to logs/msg. Java 8 is required.
 
 Stop the server with SIGINT (Ctrl-C).
+
+
+### Try it out
+
+Either use some email client to use the server or execute the JUnit test MailServerManualtest.sendMailToRunningServer.
 
 
 ## Customization:
